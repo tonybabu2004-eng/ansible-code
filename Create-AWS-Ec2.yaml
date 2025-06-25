@@ -1,0 +1,32 @@
+---
+- name: creating ec2 instance
+  hosts: localhost
+  vars_files:
+
+      - creds.yaml
+  tasks:
+        - name: creating Ec2 instance via Ansible
+          amazon.aws.ec2_instance:
+            name: k8s-master
+            instance_type: t2.medium
+            image_id: ami-0a7d80731ae1b2435
+            vpc_subnet_id: subnet-0ff76343d2a62ca85
+            security_group: sg-07befa9a91f333167
+            key_name: devops-key
+            region: us-east-1
+            count: 1
+            state: present
+
+#install awscli on your ansible controller
+#configure Awscli
+#python should be installed
+#install pip install botocore
+#install pip install boto3
+#store your creds in creds.yaml on different location
+#maintain your inventory file
+#[localhost]
+#localhost
+#localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python3
+#ansible-playbook localhost create-aws-ec2.yaml
+
+            
