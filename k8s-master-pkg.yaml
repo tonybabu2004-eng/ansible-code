@@ -109,13 +109,13 @@
 
     - name: Install Kubelet
       apt:
-        name: kubelet=1.29.*
+        name: kubelet=1.32.*
         state: present
         update_cache: true
 
     - name: Install Kubeadm
       apt:
-        name: kubeadm=1.29.*
+        name: kubeadm=1.32.*
         state: present
 
     - name: Enable the Kubelet service
@@ -146,6 +146,6 @@
   tasks:
     - name: Install Kubectl
       apt:
-        name: kubectl=1.29.*
+        name: kubectl=1.32.*
         state: present
         force: yes
