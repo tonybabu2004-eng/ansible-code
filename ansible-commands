@@ -1,0 +1,75 @@
+Ad-Hoc Commands
+
+Ad-hoc commands are used for quick, one-time tasks without requiring a playbook.
+
+Ping all hosts in the inventory:
+
+- ansible -i hosts all -m ping
+
+Ping a specific host:
+
+- ansible -i hosts all -m ping --limit host2
+
+Copy a file to all hosts:
+
+- ansible -i hosts all -m copy -a "src=/path/to/source dest=/path/to/destination"
+
+Install a package:
+
+- ansible -i hosts all -m yum -a "name=ncdu state=present"
+
+Remove a package:
+
+- ansible -i hosts all -m yum -a "name=ncdu state=absent"
+
+Playbook Execution
+
+Playbooks are YAML files that define a series of tasks to be executed on target hosts.
+
+Run a playbook:
+
+- ansible-playbook -i hosts playbook.yml
+
+Dry-run a playbook:
+
+- ansible-playbook -i hosts playbook.yml --check
+
+Run a playbook with password authentication:
+
+- ansible-playbook -i hosts playbook.yml -k
+
+Inventory Management
+
+Ansible uses inventory files to define the target hosts.
+
+List inventory details:
+
+- ansible-inventory -i inventory --list
+
+Group hosts in an inventory file:
+
+[web]
+web1.example.com
+web2.example.com
+
+[db]
+db1.example.com
+db2.example.com
+Copy
+Role and Directory Management
+
+Roles help organize tasks and files for better reusability.
+
+Initialize a new role:
+
+- ansible-galaxy init role_name
+
+Troubleshooting and Debugging
+
+Increase verbosity:
+
+- ansible-playbook -i hosts playbook.yml -vvv
+
+Test connectivity with SSH:
+
+ansible all -m ping
