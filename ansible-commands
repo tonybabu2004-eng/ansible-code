@@ -1,7 +1,7 @@
 Installation #########
 
 yum update -y
-yum install ansible -y
+yum install ansible-core -y
 ansible --version
 
 
