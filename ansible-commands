@@ -1,3 +1,10 @@
+Installation #########
+
+yum update -y
+yum install ansible2 -y
+ansible --version
+
+
 Ad-Hoc Commands
 
 Ad-hoc commands are used for quick, one-time tasks without requiring a playbook.
